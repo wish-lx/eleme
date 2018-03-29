@@ -17,6 +17,12 @@
           {{payDesc}}
         </div>
       </div>
+      <div class="ball-container">
+        <transition name="drop">
+          <div v-for="ball in balls" v-show="ball.show" class="ball"></div>
+          <div class="inner"></div>
+        </transition>
+      </div>
       <transition name="fade">
         <div class="shopcart-list" v-show="listShow">
             <div class="list-header">
@@ -77,7 +83,24 @@ export default {
   },
   data () {
    return {
-     fold: true
+     fold: true,
+     balls: [
+       {
+         show: false
+       },
+       {
+         show: false
+       },
+       {
+         show: false
+       },
+       {
+         show: false
+       },
+       {
+         show: false
+       }
+     ]
    }
   },
   computed: {
@@ -151,7 +174,7 @@ export default {
       if (this.totalPrice < this.minPrice) {
         return
       }
-      window.alert('支付$ {this.totalPrice} 元 ')
+      window.alert(`支付${this.totalPrice}元`)
     }
   },
   components: {

@@ -6,7 +6,7 @@
       router-link.tab-item(to="ratings",tag="div") 评论
       router-link.tab-item(to="seller",tag="div") 商家
     keep-alive
-      router-view(:seller="seller") 
+      router-view(:seller="seller" keep-alive) 
 </template>
 
 <script type="ecmascript-6">
@@ -22,7 +22,7 @@ export default {
           let queryParam = urlParse()
           console.log(queryParam)
           return queryParam.id
-        })
+        })()
       }
     }
   },
