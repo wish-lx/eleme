@@ -39,10 +39,10 @@
         </li>
       </ul>
     </div>
-    <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice" ></shopcart>  
+    <shopcart ref="shopCart" :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice" ></shopcart>  
    
   </div>
-  <food :food="selectedFood"  ref="food" ></food>
+  <food @add="addFood" :food="selectedFood"  ref="food" ></food>
 </div>
   
 </template>
@@ -142,6 +142,14 @@
         }
         this.selectedFood = food
         this.$refs.food.show()
+      },
+      addFood (target) {
+          this._drop(target)
+      },
+      _drop (target) {
+        this.$nextTick(() => {
+          this.$refs.shopCart.drop(target)
+        })
       }
     },
     components: {
