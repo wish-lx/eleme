@@ -43,7 +43,7 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus" >
 .cartcontrol
-    font-size:0
+  font-size:0
   .cart-decrease 
     display:inline-block
     padding: 6px
